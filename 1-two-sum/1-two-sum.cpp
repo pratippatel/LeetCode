@@ -13,18 +13,14 @@ public:
                 ans.push_back(j);
                 return ans;
             }
-            else if(j>0){
+            else{
                 i = i - 1;
                 j--;
             }
-           /* else if(j == 0){
-                j = nums.size() - 1; 
-            }*/
         }
         else{
             j = nums.size() - 1;
         }
-        
     }
         return ans;
     }
