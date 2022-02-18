@@ -10,8 +10,7 @@ bool isValid(char ch){
 }    
 
 char toLowerCase(char ch){
-    ch = ch - 'A' + 'a';
-    return ch;
+    return ch - 'A' + 'a';
 }
     
 public:
@@ -20,10 +19,10 @@ public:
         for(int i=0;i< s.length(); i++){
             if(isValid(s[i])){
                 if(s[i]>='A' && s[i]<='Z'){
-                    temp.append(1,toLowerCase(s[i]));
+                    temp.push_back(toLowerCase(s[i]));
                 }
                 else{
-                    temp.append(1,s[i]);
+                    temp.push_back(s[i]);
                 }
             }
         }
