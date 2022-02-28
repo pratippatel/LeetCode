@@ -13,7 +13,7 @@ public:
                 ans.push_back(j);
                 return ans;
             }
-            else{
+            else if(j>0){
                 i = i - 1;
                 j--;
             }
