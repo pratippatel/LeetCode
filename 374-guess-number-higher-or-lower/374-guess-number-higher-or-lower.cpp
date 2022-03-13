@@ -10,25 +10,21 @@
 class Solution {
 public:
     int guessNumber(int n) {
+      int lo = 1;
+      int hi = n;
+      
+      while(lo <= hi) {
+        int m = lo + (hi - lo)/2;
         
-        int start  =  0;
-        int end  = n;
-        
-        int mid = start +(end - start)/2;
-        while(start<end){
-            cout<<guess(mid);
-            if(guess(mid) == 0){
-                return mid;
-            }
-            else if(guess(mid) > 0){
-                start = mid + 1;
-            }
-            else {
-                end = mid;
-            }
-            mid = start +(end - start)/2;
+        int g = guess(m);
+        if(g ==0){
+          return m;
+        } else if (g == -1){
+          hi = m - 1;
+        } else {
+          lo = m + 1;
         }
-        return mid;
-        
+      }
+      return lo;
     }
 };
