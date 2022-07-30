@@ -21,9 +21,7 @@ vector<string> wordSubsets(vector<string>& words1, vector<string>& words2) {
     for(int i=0;i<words2.size();i++){
         vector<int> freq = countfreq(words2[i]);
         for(int i=0;i<26;i++){
-            if(freq[i]>Maxfreq[i]){
-                Maxfreq[i] = freq[i];
-            }
+            Maxfreq[i] = max(Maxfreq[i], freq[i]);
         }
     }
    
@@ -38,7 +36,7 @@ vector<string> wordSubsets(vector<string>& words1, vector<string>& words2) {
                 break;
             }
         }
-        cout<<endl;
+       
         if(j==26){
             ans.push_back(words1[i]);
         }
