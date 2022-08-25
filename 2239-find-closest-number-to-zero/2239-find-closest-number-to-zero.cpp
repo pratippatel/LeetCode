@@ -11,10 +11,7 @@ public:
             if(dis<= abs(minDistance)){
                 minDistance = nums[i];
             }
-            
-           
         }
-        
         return minDistance;
     }
 };
