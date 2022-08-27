@@ -2,8 +2,8 @@ class Solution {
 public:
     int largestInColumn( vector<vector<int>>& grid, int rows, int cols)
     {
-        int maxCol = grid[rows][cols]; // initialize the maximum to be value of column c in first row.
-        for(int i = 0; i < grid.size(); i++){ // loop through all rows.
+        int maxCol = grid[rows][cols]; 
+        for(int i = 0; i < grid.size(); i++){ 
             maxCol = max(maxCol, grid[i][cols]);
         }
         return maxCol;
