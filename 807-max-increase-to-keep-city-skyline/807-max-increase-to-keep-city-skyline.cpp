@@ -19,24 +19,27 @@ public:
         return maxRow;
     }*/
     int maxIncreaseKeepingSkyline(vector<vector<int>>& grid) {
-        int row = 0;
-        int col =0;
         
+        int n = grid.size();
+        vector<int> row(n);
+        vector<int> col(n);
         int incSky = 0;
         for(int i =0;i<grid.size();i++){
             for(int j = 0;j<grid[0].size();j++){
-                pair<int, int> p = largestInColumn(grid,i,j);
-                int rmax = p.first;
-                int cmax = p.second;//largestInColumn(grid,i,j).second;
+               
+                row[i] = max(row[i],grid[i][j]);
+                col[j] = max(col[j], grid[i][j]);
                 
-                cout<<rmax<<" "<<cmax<<endl;
-                
-                if(min(rmax,cmax) - grid[i][j]> 0){
-                    incSky = incSky + min(rmax,cmax) - grid[i][j];               
+            }
+        }
+        for(int i =0;i<grid.size();i++){
+            for(int j = 0;j<grid[0].size();j++){
+                if(min(row[i],col[j]) - grid[i][j]> 0){
+                    incSky = incSky + min(row[i],col[j]) - grid[i][j];               
                 }
             }
         }
-        
+       
         return incSky;
     }
 };
