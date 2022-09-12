@@ -23,7 +23,7 @@ public:
                 score++;
                 i++;
             }
-            else if(score>0 && i<tokens.size()-1){
+            else if(score>0 ){
                 power = power + tokens[j];
                 score--;
                 j--;
