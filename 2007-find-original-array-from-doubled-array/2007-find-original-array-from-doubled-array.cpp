@@ -1,21 +1,30 @@
 class Solution {
 public:
     vector<int> findOriginalArray(vector<int>& changed) {
-        int n = changed.size();
-        if (n % 2 == 1) return {};
-        sort(changed.begin(), changed.end());
+        
+        sort(changed.begin(),changed.end());
+        unordered_map<int, int> freq;
         vector<int> ans;
-        map<int, int> mp;
-        for (int i = 0; i < n; i++) {
-            mp[changed[i]]++;
+        
+        for(int i=0;i< changed.size();i++){
+            freq[changed[i]]++;    
         }
-        for (int i = 0; i < n; i++) {
-          if (mp[changed[i]] == 0) continue;
-          if (mp[changed[i] * 2] == 0) return {};
-          ans.push_back(changed[i]);
-          mp[changed[i]]--;
-          mp[changed[i] * 2]--;
+        
+        for(int i =0;i<changed.size();i++){
+            if(freq[changed[i]]>0  && freq[changed[i]*2]>0){
+                freq[changed[i]]--;
+                freq[changed[i]*2]--;
+                ans.push_back(changed[i]);
+            }
+        }
+        for(auto each: freq){
+           if(each.second != 0){
+               return {};
+           }
         }
         return ans;
+        
+        
+        
     }
 };
