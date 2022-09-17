@@ -9,7 +9,6 @@ public:
         else if(s[j] == t[i]){
             count++;
             j= j+1;
-           // solve(s, t,i+1,j+1, count);
         }
         
         solve(s, t,i+1,j, count);
