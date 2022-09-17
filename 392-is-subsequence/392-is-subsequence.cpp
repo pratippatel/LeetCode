@@ -1,29 +1,30 @@
 class Solution {
 public:
     
-    void solve(string s, string t, int i, int j,int& count){
+    int solve(string s, string t, int i, int j){
        
-        if(i==t.length() || j == s.length()){
-            return;
-        }
-        else if(s[j] == t[i]){
-            count++;
-            j= j+1;
+        if(i<0 || j < 0){
+            return 0;
         }
         
-        solve(s, t,i+1,j, count);
+        if(s[i] == t[j]){
+            return 1 + solve(s,t,i-1,j-1);
+        }
+        else{
+               // cout<<s[i]<<" "<<t[j];
+            return solve(s,t,i,j-1);
+        }
+       
         
     }
     
     bool isSubsequence(string s, string t) {
         
-        int count = 0;
+        int n = s.length();
+        int m = t.length();
         
-        int i = 0;
-        int j = 0;
-        
-        solve(s, t, i,j, count);
-        
-        return s.length() == count;
+        int count = solve(s, t, n-1,m-1);
+        cout<<count;
+        return count == n;
     }
 };
