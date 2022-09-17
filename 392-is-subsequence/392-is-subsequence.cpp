@@ -3,7 +3,7 @@ public:
     
     void solve(string s, string t, int i, int j,int& count){
        
-        if(i==t.length()){
+        if(i==t.length() || j == s.length()){
             return;
         }
         else if(s[j] == t[i]){
