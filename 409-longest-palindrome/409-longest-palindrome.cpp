@@ -2,7 +2,7 @@ class Solution {
 public:
     int longestPalindrome(string s) {
         
-        unordered_map<char,int> mp;
+       /* unordered_map<char,int> mp;
         
         for(int i=0;i<s.length();i++){
             
@@ -28,6 +28,25 @@ public:
         if(isodd){
            return ans + odd+1;
         }
-        return ans + odd;
+        return ans + odd;*/
+        
+        unordered_map<char,int> mp;
+        for(int i=0;i<s.length();i++){
+            mp[s[i]]++;
+        }
+        
+        int count  = 0;
+        int ans =0;
+        for(auto each: mp){
+            
+            if(each.second%2 !=0){
+                count++;
+            }
+          
+        }
+        if(count>0){
+            return s.length()-count+1;    
+        }
+        return s.length();
     }
 };
