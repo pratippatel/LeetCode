@@ -1,57 +1,20 @@
 class Solution {
 public:
     
-    /*int binarySearch(vector<int> arr, int x){
+    vector<int> findClosestElements(vector<int>& A, int k, int x) {
+        int N = A.size();
+        int j = lower_bound(begin(A), end(A), x) - begin(A);
+        int i = j - 1;
         
-        int start = 0;
-        int end = arr.size()-1;
-        
-        while(start<end){
-            int mid = start - (start-end)/2;
-            
-            if(arr[mid] == x){
-                return mid;
-            }
-            
-            if(arr[mid] < x){
-                start = mid +1;
-            }
-            else{
-                end = mid-1;
-            }
+        while (k--) {
+            if (i == -1 || (j < N && abs(A[j] - x) < abs(A[i] - x))) j++;
+            else i--;
         }
-        return start;
         
+        return vector<int>(begin(A) + i + 1, begin(A) + j);
     }
-    
-    vector<int> findClosestElements(vector<int>& arr, int k, int x) {
-        
-        int index = binarySearch(arr, x);
-        cout<<index;
-        
-        int j = index+1;
-        
-        vector<int> ans;
-        
-        for(int i = 0 ;i<k;i++){
-            
-            if(j<arr.size() && index >= 0 && abs(arr[index] - x) <= abs(arr[j] - x)){
-                ans.push_back(arr[index]);
-                index--;
-            }
-            else if(j>=arr.size() && index >= 0){
-                ans.push_back(arr[index]);
-                index--;
-            }
-            else{
-                ans.push_back(arr[j]);
-                j++;
-            }
-        }
-        sort(ans.begin(),ans.end());
-        return ans;
-    }*/
-    vector<int> findClosestElements(vector<int>& arr, int k, int x) {
+
+   /* vector<int> findClosestElements(vector<int>& arr, int k, int x) {
         
         priority_queue<pair<int,int>> heap;
         
@@ -70,5 +33,5 @@ public:
         }
         sort(ans.begin(),ans.end());
         return ans;
-    }
+    }*/
 };
