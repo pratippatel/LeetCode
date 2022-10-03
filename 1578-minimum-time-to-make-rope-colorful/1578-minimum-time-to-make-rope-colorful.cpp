@@ -11,11 +11,11 @@ public:
                     
                     sum = sum + neededTime[i];
                     i = j-1;
-                    cout<<sum<<endl;
+                    
                 }
                 else{
                     sum = sum + neededTime[j];
-                    cout<<sum<<endl;
+                   
                     i--;
                 }
             }
