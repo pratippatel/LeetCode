@@ -8,7 +8,7 @@ public:
             int u = pre[i][0];
             int v = pre[i][1];
             
-            adjList[u].push_back(v);
+            adjList[v].push_back(u);
         }        
         
         
@@ -44,7 +44,7 @@ public:
             }
         }
         if(ans.size() == numCourses){
-            reverse(ans.begin(),ans.end());
+           // reverse(ans.begin(),ans.end());
             return ans;
         }
         return {};
