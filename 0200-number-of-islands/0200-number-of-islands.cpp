@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    void CallBFS(vector<vector<char>> grid, vector<vector<int>> &visited, int i, int j){
+    void CallBFS(vector<vector<char>> &grid, vector<vector<int>> &visited, int i, int j){
         
         queue<pair<int,int>> q;
         q.push({i,j});
