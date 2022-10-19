@@ -1,25 +1,22 @@
 class Solution {
 public:
     
-    void solve(string s,string t, int i, int j, int &count){
+    int solve(string s,string t, int i, int j){
         
         if(j == t.size() || i == s.size()){
-            return;
+            return 0;
         }
         
         if(s[i] == t[j]){
-             count++;
-             i = i+1;
+             return 1 + solve(s,t,i+1,j+1);
         }
-        solve(s,t,i,j+1,count);
+        return solve(s,t,i,j+1);
     }
     
     bool isSubsequence(string s, string t) {
         
         string output = "";
-        int count = 0;
-        solve(s,t,0,0,count);
         
-        return count == s.size();
+        return solve(s,t,0,0) == s.size();
     }
 };
