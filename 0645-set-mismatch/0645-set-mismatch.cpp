@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) {
         
-        sort(nums.begin(), nums.end());
+       /* sort(nums.begin(), nums.end());
         int n = nums.size();
         int totalSum = n * (n+1)/2;
         
@@ -25,6 +25,28 @@ public:
         sum = sum + nums[i];
         
         ans.push_back(totalSum - sum);
+        return ans;*/
+        
+        
+        int sum =0;
+        int n = nums.size();
+        int totalSum = n * (n+1)/2;
+        unordered_map<int, int> freq;
+        vector<int> ans;
+        
+        for(int i =0;i< nums.size();i++){
+            
+            freq[nums[i]]++;
+            sum = sum + nums[i];
+            if(freq[nums[i]] == 2){
+                ans.push_back(nums[i]);
+                sum = sum - nums[i];
+            }
+            
+        }
+        ans.push_back(totalSum-sum);
         return ans;
+        
+        
     }
 };
